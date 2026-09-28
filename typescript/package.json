@@ -1,0 +1,59 @@
+{
+  "name": "key-roundtrip",
+  "version": "0.1.0",
+  "license": "AGPL-3.0-only",
+  "description": "Minimal signed request/response message shell over authenticated transports",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bsv8/roundtrip.git",
+    "directory": "typescript"
+  },
+  "bugs": {
+    "url": "https://github.com/bsv8/roundtrip/issues"
+  },
+  "homepage": "https://github.com/bsv8/roundtrip#readme",
+  "keywords": [
+    "libp2p",
+    "bitcoin-libp2p",
+    "webrtc",
+    "websocket",
+    "signed-messages"
+  ],
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "vectors": "ROUNDTRIP_WRITE_VECTORS=1 vitest run test/generate-vectors.test.ts",
+    "example:http": "npm run build && node examples/http.ts",
+    "example:libp2p": "npm run build && node examples/libp2p.ts",
+    "prepublishOnly": "npm run typecheck && npm run build"
+  },
+  "dependencies": {
+    "@libp2p/interface": "3.3.0",
+    "@noble/curves": "2.0.1",
+    "@noble/hashes": "2.0.1",
+    "bitcoin-libp2p": "0.3.1"
+  },
+  "devDependencies": {
+    "@libp2p/tcp": "11.0.27",
+    "@libp2p/webrtc": "6.0.31",
+    "@multiformats/multiaddr": "13.0.3",
+    "@types/node": "22.20.1",
+    "typescript": "5.7.2",
+    "vitest": "4.1.11"
+  }
+}
