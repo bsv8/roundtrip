@@ -61,6 +61,9 @@ npm install key-roundtrip                              # TypeScript，npm 上名
 go get github.com/bsv8/roundtrip/go/core              # Go，模块路径 github.com/bsv8/roundtrip/go
 ```
 
+Go 模块的 `go.mod` 在仓库子目录 `go/` 下，因此 Go 侧的版本标签是 `go/v0.1.0` 而不是 `v0.1.0`；
+`v0.1.0` 只作仓库级发布标记。锁定版本时用 `go get github.com/bsv8/roundtrip/go/core@go/v0.1.0`。
+
 ## 运行
 
 ```bash
